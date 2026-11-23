@@ -1,0 +1,106 @@
+TERM	EQU	19
+UGH	ALF	"    0"
+	ALF	"    1"
+	ALF	"    2"
+	ALF	"    3"
+	ALF	"    4"
+	ALF	"    5"
+	ALF	"    6"
+	ALF	"    7"
+	ALF	"    8"
+	ALF	"    9"
+	ALF	"    a"
+	ALF	"    b"
+	ALF	"    c"
+	ALF	"    d"
+	ALF	"    e"
+	ALF	"    f"
+	ALF	"    1"
+	ALF	"    2"
+	ALF	"    3"
+	ALF	"    4"
+	ALF	"    5"
+	ALF	"    6"
+	ALF	"    7"
+	ALF	"    8"
+	ALF	"    9"
+	ALF	"    a"
+	ALF	"    b"
+	ALF	"    c"
+	ALF	"    d"
+	ALF	"    e"
+	ALF	"    f"
+	ALF	"    1"
+	ALF	"    2"
+	ALF	"    3"
+	ALF	"    4"
+	ALF	"    5"
+	ALF	"    6"
+	ALF	"    7"
+	ALF	"    8"
+	ALF	"    9"
+	ALF	"    a"
+	ALF	"    b"
+	ALF	"    c"
+	ALF	"    d"
+	ALF	"    e"
+	ALF	"    f"
+	ALF	"    1"
+	ALF	"    2"
+	ALF	"    3"
+	ALF	"    4"
+	ALF	"    5"
+	ALF	"    6"
+	ALF	"    7"
+	ALF	"    8"
+	ALF	"    9"
+	ALF	"    a"
+	ALF	"    b"
+	ALF	"    c"
+	ALF	"    d"
+	ALF	"    e"
+	ALF	"    f"
+	ALF	"    1"
+	ALF	"    2"
+	ALF	"    3"
+	ALF	"    4"
+	ALF	"    5"
+	ALF	"    6"
+	ALF	"    7"
+	ALF	"    8"
+	ALF	"    9"
+	ALF	"    v"
+	ALF	"    w"
+	ALF	"    x"
+	ALF	"    y"
+	ALF	"    z"
+OUTPUT ORIG	*+14
+*
+OUTCHAR	STJ	2F
+	CMP4	=6=
+	JNE	4F
+	ENT4	1
+	INC3	1
+4H	CMP3	=14=
+	JNE	3F
+	ENT3	0
+3H	STA	8F(1:2)
+	ST4	7F(1:2)
+7H	ENTA	*
+	MUL	=9=
+	STX	5F(4:4)
+8H	ENTA	*
+5H	STA	OUTPUT,3(0)
+	INC4	1
+2H	JMP	*
+*
+START	ENT2	0
+	ENT3	0
+	ENT4	1
+LOOP	LDA	UGH,2
+	JMP	OUTCHAR
+	INC2	1
+	CMP2	=71=
+	JNE	LOOP
+	OUT	OUTPUT(TERM)
+	END	START
